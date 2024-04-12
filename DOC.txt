@@ -1,0 +1,15 @@
+Intro:
+     Platform for users to create or take quiz
+
+features:
+     User registration and login
+     Quiz management
+     Taking other user's quiz
+     Scoring 
+     Leaderboard
+
+Home page - Reg/log -> account info (My Quizzes , My scores, Create Quizz, Search Quizz)
+
+categories - some sumerized categories 
+
+page for creating quizz - (add question options and the answer), optional: select the score intervals"bad, not bad , good",
