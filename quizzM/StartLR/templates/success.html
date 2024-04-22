@@ -1,0 +1,19 @@
+<!-- HomePage/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    
+    <!-- Buttons for different options -->
+    <div>
+        <a href="{% url 'explore_quizzes' %}"><button>Explore Quizzes</button></a>
+        <a href="{% url 'create_quiz' %}"><button>Create Quiz</button></a>
+        <a href="{% url 'view_results' %}"><button>View Results</button></a>
+    </div>
+</body>
+</html>
