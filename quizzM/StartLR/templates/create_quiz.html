@@ -1,4 +1,4 @@
-<!-- QuizCreator/templates/create_quiz.html -->
+<!-- StartLR/templates/create_quiz.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,38 +11,11 @@
     <form method="post">
         {% csrf_token %}
         <div>
-            <label for="question">Question:</label>
-            <input type="text" name="question" id="question">
+            <label for="quiz_title">Quiz Title:</label>
+            <input type="text" name="quiz_title" id="quiz_title">
         </div>
-        <div id="options">
-            <div>
-                <label for="option1">Option 1:</label>
-                <input type="text" name="option1" id="option1">
-            </div>
-            <div>
-                <label for="option2">Option 2:</label>
-                <input type="text" name="option2" id="option2">
-            </div>
-        </div>
-        <button type="button" id="add-option">Add an Option</button>
         <button type="submit">Next</button>
     </form>
-
-    <script>
-        document.getElementById('add-option').addEventListener('click', function() {
-            var optionsDiv = document.getElementById('options');
-            var optionCount = optionsDiv.querySelectorAll('div').length + 1;
-            if (optionCount <= 5) {
-                var newOptionDiv = document.createElement('div');
-                newOptionDiv.innerHTML = `
-                    <label for="option${optionCount}">Option ${optionCount}:</label>
-                    <input type="text" name="option${optionCount}" id="option${optionCount}">
-                `;
-                optionsDiv.appendChild(newOptionDiv);
-            } else {
-                alert('Maximum number of options reached (5)');
-            }
-        });
-    </script>
 </body>
 </html>
+

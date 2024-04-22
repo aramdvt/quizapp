@@ -1,0 +1,56 @@
+<!-- QuizCreator/templates/add_question.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question to Quiz</title>
+</head>
+<body>
+    <h1>Add Question to Quiz "{{ quiz_title }}"</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="quiz_title" value="{{ quiz_title }}">
+
+        <div>
+            <label for="question">Question:</label>
+            <input type="text" name="question" id="question">
+        </div>
+        
+        <div id="options">
+            <div class="option">
+                <label for="option1">Option 1:</label>
+                <input type="text" name="option1" id="option1">
+                <input type="radio" name="correct_option" value="1">
+            </div>
+            <div class="option">
+                <label for="option2">Option 2:</label>
+                <input type="text" name="option2" id="option2">
+                <input type="radio" name="correct_option" value="2">
+            </div>
+        </div>
+        
+        <button type="button" id="add-option">Add Option</button>
+        <button type="submit">Next</button>
+    </form>
+
+    <script>
+        document.getElementById('add-option').addEventListener('click', function() {
+            var optionsDiv = document.getElementById('options');
+            var optionCount = optionsDiv.querySelectorAll('.option').length + 1;
+            if (optionCount <= 5) {
+                var newOptionDiv = document.createElement('div');
+                newOptionDiv.classList.add('option');
+                newOptionDiv.innerHTML = `
+                    <label for="option${optionCount}">Option ${optionCount}:</label>
+                    <input type="text" name="option${optionCount}" id="option${optionCount}">
+                    <input type="radio" name="correct_option" value="${optionCount}">
+                `;
+                optionsDiv.appendChild(newOptionDiv);
+            } else {
+                alert('Maximum number of options reached (5)');
+            }
+        });
+    </script>
+</body>
+</html>
