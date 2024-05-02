@@ -1,4 +1,3 @@
-<!-- QuizCreator/templates/add_question.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,9 @@
 </head>
 <body>
     <h1>Add Question to Quiz "{{ quiz_title }}"</h1>
-    <form method="post">
+    <form id="question-form" method="post" action="">
         {% csrf_token %}
         <input type="hidden" name="quiz_title" value="{{ quiz_title }}">
-
         <div>
             <label for="question">Question:</label>
             <input type="text" name="question" id="question">
@@ -31,7 +29,8 @@
         </div>
         
         <button type="button" id="add-option">Add Option</button>
-        <button type="submit">Next</button>
+        <button type="submit" id="next-button">Next</button>
+        <button type="submit" name="action" value="save_quiz">Save Quiz</button>
     </form>
 
     <script>

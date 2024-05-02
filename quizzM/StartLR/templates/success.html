@@ -1,19 +1,34 @@
-<!-- HomePage/templates/home.html -->
+<!-- QuizCreator/templates/success.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Success</title>
 </head>
 <body>
-    <h1>Welcome, {{ user.username }}</h1>
+    <h1>Welcome, {{ username }}</h1>
+    <p>Your account home page</p>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #a78821;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
     
-    <!-- Buttons for different options -->
-    <div>
-        <a href="{% url 'explore_quizzes' %}"><button>Explore Quizzes</button></a>
-        <a href="{% url 'create_quiz' %}"><button>Create Quiz</button></a>
-        <a href="{% url 'view_results' %}"><button>View Results</button></a>
-    </div>
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+    <li><a href="{% url 'create_quiz' %}" class="button">Create Quiz</a></li>
+    <li><a href="{% url 'explore_quizzes' %}" class="button">Explore Quizzes</a></li>
+    <li><a href="{% url 'view_results' %}" class="button">View Results</a></li>
+    <li><a href="{% url 'my_quizzes' %}" class="button">My Quizzes</a></li>
+    
 </body>
 </html>
